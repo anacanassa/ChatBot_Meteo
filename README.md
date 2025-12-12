@@ -71,3 +71,34 @@ O notebook já inclui:
 - Configuração da API Key
 
 - Execução interativa do chatbot
+
+## Fluxo de Interação do Chatbot
+
+### Usuário faz uma pergunta
+Exemplo:
+**Usuário:** "Vai chover amanhã no Rio de Janeiro?"
+
+### Sistema interpreta a pergunta (Gemini)
+Retorno:
+```json
+{
+  "city": "Rio de Janeiro",
+  "date": "amanha",
+  "info": "weathercode"
+}
+```
+## Sistema converte a data relativa
+
+"amanhã" → 2025-12-13
+
+## Sistema busca coordenadas da cidade
+
+Rio de Janeiro → (-22.9068, -43.1729)
+
+## Sistema consulta Open-Meteo
+
+Retorna: weathercode = 0 (céu limpo)
+
+## esposta final exibida ao usuário
+
+Bot: "A condição climática em Rio de Janeiro em 2025-12-13 será: Céu limpo."
